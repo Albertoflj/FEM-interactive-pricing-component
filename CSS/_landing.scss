@@ -1,0 +1,284 @@
+body{
+    font-family: 'Manrope', sans-serif;
+    font-size: 15px;
+    margin: 0;
+    width: 100%;
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    background-image: url('../images/bg-pattern.svg');
+    background-size: 100% 50%;
+    background-repeat: no-repeat;
+    background-color: $paleBlue;
+}
+.container{
+    max-width: 540px;
+    width:100%;
+    min-height: 100vh;
+}
+.main__text{
+    height: 264px;
+    overflow: auto;
+    h2{
+        font-size:28px;
+        text-align:center;
+        color: $darkBlue;
+        margin-top: 114px;
+        margin-bottom:18px;
+    }
+    p{
+        font-size: 15px;
+        text-align:center;
+        color: $grayBlue;
+    }
+    background-image: url('../images/pattern-circles.svg');
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+.component{
+    
+    overflow: auto;
+    overflow-x: hidden;
+    min-height: 400px;
+    max-width: 540px;
+    width: calc(100%-50px);
+    border-radius: 10px;
+    background-color: $white;
+    box-shadow: 0px 7px 37px -16px rgba(0,0,0,0.1);
+    margin: 0 25px;
+}
+.component{
+  &__content{
+    margin: 0 46px;
+    display: grid;
+    
+  }
+  &__top{
+      display: grid;
+    margin-top: 50px;
+    align-items: center;
+    
+    #pageViews{
+        text-transform: uppercase;
+        color: $grayBlue;
+        letter-spacing: 1px;
+        grid-column: 1/2;
+    }
+    #price{
+        font-size: 40px;
+        color: $darkBlue;
+        font-weight: 800;
+        margin: 0;
+    }
+    #time{
+        color: $grayBlue;
+        font-size: 16px;
+        margin-left: 10px;
+        letter-spacing: 1px;
+    }
+    .price__month{
+        justify-self: end;
+        grid-column: 2/3;
+        display: flex;
+        align-items: center;
+        height: fit-content;
+    }
+    .slider__container{
+        grid-row: 2/3;
+        grid-column: 1/3;
+        height: 90px;
+        display: flex;
+        align-items: center;
+        overflow: visible;
+    }
+    #myRange{
+        -webkit-appearance: none;
+        width: 100%;
+        height: 8px;
+        border-radius: 50px;
+        background: linear-gradient(to right, $softCyan 50%, $lightGrayBlue 50%);
+        outline: none;
+        border: none;
+    }
+
+    #myRange::-webkit-slider-thumb{
+        -webkit-appearance: none;
+        height: 40px;
+        width: 40px;
+        border-radius: 50%;
+        background-color: $strongCyan;
+        background-image: url(../images/icon-slider.svg);
+        background-repeat: no-repeat;
+        background-position: center;
+        transition: 200ms all;
+        box-shadow:  0px 18px 50px -3px $strongCyan;
+    }
+    #myRange::-webkit-slider-thumb:hover{
+        cursor: pointer;
+        background-color: hsl(174, 77%, 59%);
+    }
+    #myRange::-webkit-slider-thumb:active{
+        cursor: grab;
+        background-color: hsl(174, 59%, 43%);
+    }
+  }
+  .billing{
+      position: relative;
+      display: flex;
+
+      justify-content: space-between;
+      justify-self: center;
+      :not(:first-child):not(input){
+          margin-left: 17px;
+          
+      }
+    span{
+        color: $grayBlue;
+    }
+      width: fit-content;
+    #toggle{
+        width: 0;
+        height: 0;
+        display: none;
+    }
+    label{
+        display: block;
+        position: relative;
+        cursor: pointer;
+        width: 43px;
+        height: 22px;
+        background-color: $lightGrayBlue2;
+        border-radius: 50px;
+        transition: .3s;
+    }
+    label::after{
+        position: absolute;
+        content: '';
+        height: 14px;
+        width: 14px;
+        background-color: $white;
+        border-radius: 50%;
+        top: 4px;
+        left: 4px;
+        transition: .3s ease-in-out;
+    }
+    #toggle:checked + label{
+        background-color: $strongCyan;
+    }
+    #toggle:checked + label::after{
+        left: calc(50% + 4px);
+    }
+    .billing__discount{
+        position: absolute;
+        right: -30%;
+        top: 5%;
+        height: 20px;
+        width: 78px;
+        border-radius: 50px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        #discount{
+            font-size: 10px ;
+            color: $lightRed;
+            text-align: center;
+        }
+        background-color: $lightGrayRed;
+    }
+    margin-bottom: 40px;
+  }
+  
+}
+
+.component__bottom{
+    overflow: visible;
+    border-top: 1px $lightGrayBlue solid;
+    .bottom__content{
+        align-items: center;
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        margin: 0 46px;
+        margin-top: 30px;
+        ul{
+            
+            padding-left: 20px;
+            color: $grayBlue;
+            :not(:last-child){
+                margin-bottom: 6px;
+            }
+            margin: 0;
+        }
+        li {
+            list-style-image: url("../images/icon-check.svg");
+          }
+        
+    }
+    button{
+        width: 100%;
+        max-width: 170px;
+        height: 41px;
+        border-radius: 50px;
+        background-color: $darkBlue;
+        font-size: 13px;
+        color: $white;
+        font-family: 'Manrope', sans-serif;
+        transition: .3s;
+    }
+    button:hover{
+        cursor: pointer;
+        background-color: hsl(231, 25%, 30%);
+    }
+    
+}
+
+@include breakpoint-down(small){
+    ul{
+        text-align: center;
+    }
+    .component__content{
+        margin: 0 25px;
+    }
+    .bottom__content{
+        flex-direction: column !important;
+        button{
+            margin-top: 30px;
+            margin-bottom: 30px;
+        }
+    }
+    
+    .component__top{
+        text-align: center;
+    }
+    .price__month{
+        justify-self: center !important;
+        #price{
+            font-size: 28px;
+        }
+    }
+    .billing{
+        margin-top: 25px;
+        font-size: 12px;
+        span{
+            display: flex;
+            align-items: center;
+        }
+    }
+    .component__top > *{
+        grid-column: 1/2 !important;
+        grid-row: auto !important;
+    }
+    .slider__container{
+        width: 100%;
+    }
+    .billing__discount{
+        left: 96%;
+        max-width: 35px !important;
+        width: 100%;
+        height: fit-content !important;
+        span{
+            margin: 3px;
+        }
+    }
+}
